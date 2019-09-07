@@ -1,64 +1,72 @@
 package com.br.waldir.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class CategoriaFilme implements Serializable {
+public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String nomeCategoriaFilme;
+	private String name;
+	private String email;
+	private String senha;
 	
-	@JsonBackReference //Cola-se essa anotação do lado que é para vir os produtos
-	@ManyToMany(mappedBy = "categoriaFilmes")
-	private List<Filme> filmes = new ArrayList<>();
+	public Usuario() {}
 	
-	public CategoriaFilme() {
-		
-	}
 	
-	public CategoriaFilme(Integer id, String nomoCategoriaFilme) {
-		super();
+	public Usuario(Integer id, String name, String email, String senha) {
 		this.id = id;
-		this.nomeCategoriaFilme = nomoCategoriaFilme;
+		this.name = name;
+		this.setEmail(email);
+		this.setPassword(senha);
 	}
 
+	
+	public String getName() {
+		return name;
+	}
+
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getNomeCategoriaFilme() {
-		return nomeCategoriaFilme;
+	
+	public String getEmail() {
+		return email;
 	}
 
-	public void setNomeCategoriaFilme(String nomoCategoriaFilme) {
-		this.nomeCategoriaFilme = nomoCategoriaFilme;
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
-
-	public List<Filme> getFilmes() {
-		return filmes;
+	
+	public String getSenha() {
+		return this.senha;
+	}
+	
+	public void setPassword(String senha) {
+		this.senha = senha;
 	}
 
-	public void setFilmes(List<Filme> filmes) {
-		this.filmes = filmes;
-	}
 
 	@Override
 	public int hashCode() {
@@ -68,6 +76,7 @@ public class CategoriaFilme implements Serializable {
 		return result;
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,7 +85,7 @@ public class CategoriaFilme implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoriaFilme other = (CategoriaFilme) obj;
+		Usuario other = (Usuario) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -84,5 +93,5 @@ public class CategoriaFilme implements Serializable {
 			return false;
 		return true;
 	}
-
+	
 }

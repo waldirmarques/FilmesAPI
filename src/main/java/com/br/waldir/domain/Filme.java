@@ -8,13 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Filme implements Serializable {	
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,20 +25,18 @@ private static final long serialVersionUID = 1L;
 	private boolean assistido;
 	private String dataFilmeAssistido;
 	
-	
-	@JsonBackReference //Ele dis que do outro lado já foram listados as categorias. Ele omite a lista de categoria
-	@ManyToMany //Anotação referente a junção de duas tabelas
-	//@JoinTable(name="FILMES_CATEGORIA",
-	//		joinColumns = @JoinColumn(name="filme_id"),
-	//		inverseJoinColumns = @JoinColumn(name="categoriaFilme_id") // isso faz para criar uma chave estrangeira.
-	//		)
-	
+	@JsonBackReference
+	@ManyToMany
+	@JoinTable(name="FILME_CATEGORIA",
+	 	joinColumns = @JoinColumn(name="filme_id"),
+		inverseJoinColumns = @JoinColumn(name="categoriaFilmes_id") // isso faz para criar uma chave estrangeira.
+		)
 	private List<CategoriaFilme> categoriaFilmes = new ArrayList<>();
 	
 	public Filme() {
 		
 	}	
-
+	
 	public Filme(Integer id, String nomeFilme, boolean assistido, String dataFilmeAssistido) {
 		super();
 		this.id = id;
