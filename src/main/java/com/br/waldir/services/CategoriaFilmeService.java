@@ -5,12 +5,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.br.waldir.domain.CategoriaFilme;
 import com.br.waldir.repositories.CategoriaFilmeRepository;
 import com.br.waldir.servives.exceptions.DataIntegrityException;
 import com.br.waldir.servives.exceptions.ObjectNotFoundException;
+
+import io.netty.handler.codec.http2.Http2FrameLogger.Direction;
 
 @Service
 public class CategoriaFilmeService {
@@ -40,12 +44,17 @@ public class CategoriaFilmeService {
 			repo.deleteById(id);
 		}
 		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possivevel excluir uma Categoria que possui profutos");
+			throw new DataIntegrityException("Não é possivevel excluir uma Categoria que possui Filmes");
 		}
 	}
 
 	public List<CategoriaFilme> findAll() {
 		return repo.findAll();
+	}
+
+	public Page<CategoriaFilme> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage , Direction.valueOf(direction), orderBy);
+		return repo.findAll(pageRequest);
 	}	
 
 }
