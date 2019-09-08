@@ -1,5 +1,6 @@
 package com.br.waldir.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,10 @@ public class CategoriaFilmeService {
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possivevel excluir uma Categoria que possui profutos");
 		}
-		
 	}
-	
-	
+
+	public List<CategoriaFilme> findAll() {
+		return repo.findAll();
+	}	
 
 }
