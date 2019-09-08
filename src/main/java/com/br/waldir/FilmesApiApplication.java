@@ -3,6 +3,7 @@ package com.br.waldir;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,7 +15,7 @@ import com.br.waldir.repositories.FilmeRepository;
 import com.br.waldir.repositories.UsuarioRepository;
 
 @SpringBootApplication
-public class FilmesApiApplication {
+public class FilmesApiApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CategoriaFilmeRepository categoriaFilmeRepository;

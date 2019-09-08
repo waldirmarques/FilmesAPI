@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.br.waldir.domain.CategoriaFilme;
@@ -14,7 +15,7 @@ import com.br.waldir.repositories.CategoriaFilmeRepository;
 import com.br.waldir.servives.exceptions.DataIntegrityException;
 import com.br.waldir.servives.exceptions.ObjectNotFoundException;
 
-import io.netty.handler.codec.http2.Http2FrameLogger.Direction;
+
 
 @Service
 public class CategoriaFilmeService {
