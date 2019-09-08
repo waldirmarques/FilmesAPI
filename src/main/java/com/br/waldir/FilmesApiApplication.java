@@ -27,6 +27,7 @@ public class FilmesApiApplication {
 		SpringApplication.run(FilmesApiApplication.class, args);
 	}
 	
+	@Override
 	public void run(String... args) throws Exception {
 		
 		Usuario user1 = new Usuario(null, "Waldir", "waldir.marques@dcx.ufpb.br", "12345678");
