@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +35,8 @@ public class CategoriaFilmeResources {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody CategoriaFilme obj){// throws ObjectNotFoundException{
+	public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaFilme objDto){// throws ObjectNotFoundException{
+		CategoriaFilme obj = service.fromDTO(objDto);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").
 				buildAndExpand(obj.getId()).toUri();
@@ -42,7 +45,8 @@ public class CategoriaFilmeResources {
 	
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody CategoriaFilme obj,@PathVariable Integer id){
+	public ResponseEntity<Void> update(@Valid @RequestBody CategoriaFilme objDto,@PathVariable Integer id){
+		CategoriaFilme obj = service.fromDTO(objDto);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
@@ -53,10 +57,11 @@ public class CategoriaFilmeResources {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET) //lista todas as categoria
+	@RequestMapping(method = RequestMethod.GET) //lista todas as categoria de filme
 	public ResponseEntity<List<CategoriaFilmeDTO>> findPage() {
 		List<CategoriaFilme> list = service.findAll();
-		List<CategoriaFilmeDTO> listDTO = list.stream().map(obj -> new CategoriaFilmeDTO(obj)).collect(Collectors.toList());
+		List<CategoriaFilmeDTO> listDTO = list.stream().map(obj 
+				-> new CategoriaFilmeDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 	

@@ -3,6 +3,8 @@ package com.br.waldir.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -45,7 +47,7 @@ public class CategoriaFilmeService {
 			repo.deleteById(id);
 		}
 		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possivevel excluir uma Categoria que possui Filmes");
+			throw new DataIntegrityException("Não é possivevel excluir uma CategoriaFilme que possui Filmes");
 		}
 	}
 
@@ -56,6 +58,10 @@ public class CategoriaFilmeService {
 	public Page<CategoriaFilme> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage , Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
-	}	
+	}
+	
+	public CategoriaFilme fromDTO(@Valid CategoriaFilme objDto) {
+		return new CategoriaFilme(objDto.getId(),objDto.getNomeCategoriaFilme());
+	}
 
 }

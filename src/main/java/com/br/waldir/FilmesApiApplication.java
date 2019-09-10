@@ -37,8 +37,8 @@ public class FilmesApiApplication implements CommandLineRunner{
 		CategoriaFilme cf2 = new CategoriaFilme(null,"Terror");
 		
 		Filme f1 = new Filme(null,"Veloses e Furiosos",true,"23/07/2019");
-		Filme f2 = new Filme(null,"Boneca assasina",false,"");
-		Filme f3 = new Filme(null,"Motoqueiro Fantasma",false,"");
+		Filme f2 = new Filme(null,"Boneca assasina",false,null);
+		Filme f3 = new Filme(null,"Motoqueiro Fantasma",false,null);
 		
 		cf1.getFilmes().addAll(Arrays.asList(f1));
 		cf2.getFilmes().addAll(Arrays.asList(f2,f3));
