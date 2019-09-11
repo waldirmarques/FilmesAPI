@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.br.waldir.domain.CategoriaFilme;
+import com.br.waldir.dto.CategoriaFilmeDTO;
 import com.br.waldir.repositories.CategoriaFilmeRepository;
 import com.br.waldir.servives.exceptions.DataIntegrityException;
 import com.br.waldir.servives.exceptions.ObjectNotFoundException;
@@ -58,8 +59,8 @@ public class CategoriaFilmeService {
 		return repo.findAll(pageRequest);
 	}
 	
-	public CategoriaFilme fromDTO(@Valid CategoriaFilme objDto) {
-		return new CategoriaFilme(objDto.getId(),objDto.getNomeCategoriaFilme());
+	public CategoriaFilme fromDTO(@Valid CategoriaFilmeDTO objDto) {
+		return new CategoriaFilme(objDto.getId(),objDto.getNome());
 	}
 
 }

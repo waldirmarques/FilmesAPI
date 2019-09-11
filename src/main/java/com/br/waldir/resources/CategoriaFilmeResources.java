@@ -35,7 +35,7 @@ public class CategoriaFilmeResources {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaFilme objDto){// throws ObjectNotFoundException{
+	public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaFilmeDTO objDto){// throws ObjectNotFoundException{
 		CategoriaFilme obj = service.fromDTO(objDto);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").
@@ -45,7 +45,7 @@ public class CategoriaFilmeResources {
 	
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody CategoriaFilme objDto,@PathVariable Integer id){
+	public ResponseEntity<Void> update(@Valid @RequestBody CategoriaFilmeDTO objDto,@PathVariable Integer id){
 		CategoriaFilme obj = service.fromDTO(objDto);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();

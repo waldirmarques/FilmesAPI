@@ -20,6 +20,14 @@ public class Seriado implements Serializable {
 	private boolean assistido;
 	private String dataFilmeAssistido;
 	
+	//@JsonBackReference
+	//@ManyToMany
+	//@JoinTable(name="SERIADO_CATEGORIA",
+	// 	joinColumns = @JoinColumn(name="seriado_id"),
+	//	inverseJoinColumns = @JoinColumn(name="categoriaFilmes_id") // isso faz para criar uma chave estrangeira.
+	//	)
+	//private List<CategoriaFilme> categoriaFilmes = new ArrayList<>();
+	
 	public Seriado () {
 		
 	}

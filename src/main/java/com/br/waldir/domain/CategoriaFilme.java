@@ -25,6 +25,10 @@ public class CategoriaFilme implements Serializable {
 	@ManyToMany(mappedBy = "categoriaFilmes")
 	private List<Filme> filmes = new ArrayList<>();
 	
+	//@JsonManagedReference //Cola-se essa anotação do lado que é para vir os produtos
+	//@ManyToMany(mappedBy = "categoriaSeriado")
+	//private List<Filme> seriados = new ArrayList<>();
+	
 	public CategoriaFilme() {
 		
 	}

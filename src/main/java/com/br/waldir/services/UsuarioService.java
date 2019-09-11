@@ -50,7 +50,7 @@ public class UsuarioService {
 	}
 	
 	public Usuario fromDTO(@Valid UsuarioDTO objDto) {
-		return new Usuario(objDto.getId(),objDto.getName(),objDto.getEmail(),objDto.getSenha());
+		return new Usuario(objDto.getId(),objDto.getNome(),objDto.getEmail(),objDto.getSenha());
 	}
 
 

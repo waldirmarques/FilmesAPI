@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Filme implements Serializable {	
@@ -25,7 +25,7 @@ public class Filme implements Serializable {
 	private boolean assistido;
 	private String dataFilmeAssistido;
 	
-	@JsonIgnore
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name="FILME_CATEGORIA",
 	 	joinColumns = @JoinColumn(name="filme_id"),
