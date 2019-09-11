@@ -33,9 +33,7 @@ public class Filme implements Serializable {
 		)
 	private List<CategoriaFilme> categoriaFilmes = new ArrayList<>();
 	
-	public Filme() {
-		
-	}	
+	public Filme() {}	
 	
 	public Filme(Integer id, String nomeFilme, boolean assistido, String dataFilmeAssistido) {
 		super();
