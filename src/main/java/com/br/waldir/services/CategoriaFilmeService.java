@@ -17,8 +17,6 @@ import com.br.waldir.repositories.CategoriaFilmeRepository;
 import com.br.waldir.servives.exceptions.DataIntegrityException;
 import com.br.waldir.servives.exceptions.ObjectNotFoundException;
 
-
-
 @Service
 public class CategoriaFilmeService {
 	

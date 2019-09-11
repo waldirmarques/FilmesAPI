@@ -25,7 +25,9 @@ public class DBService {
 
 	public void instantiateTestDatabase() throws ParseException {
 
-Usuario user1 = new Usuario(null, "Waldir", "waldir.marques@dcx.ufpb.br", "12345678");
+		Usuario user1 = new Usuario(null, "Waldir", "waldir.marques@dcx.ufpb.br", "12345678");
+		
+		usuarioRepository.saveAll(Arrays.asList(user1));
 		
 		CategoriaFilme cf1 = new CategoriaFilme(null,"Ação");
 		CategoriaFilme cf2 = new CategoriaFilme(null,"Terror");

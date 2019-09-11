@@ -25,7 +25,7 @@ public class Usuario implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.setEmail(email);
-		this.setPassword(senha);
+		this.setSenha(senha);
 	}
 
 	
@@ -63,7 +63,7 @@ public class Usuario implements Serializable {
 		return this.senha;
 	}
 	
-	public void setPassword(String senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 

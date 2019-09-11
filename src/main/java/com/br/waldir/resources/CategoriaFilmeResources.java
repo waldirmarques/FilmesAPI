@@ -22,14 +22,14 @@ import com.br.waldir.dto.CategoriaFilmeDTO;
 import com.br.waldir.services.CategoriaFilmeService;
 
 @RestController
-@RequestMapping(value="/categoriaFIlmes")
+@RequestMapping(value="/categoriaFilmes")
 public class CategoriaFilmeResources {
 	
 	@Autowired
 	private CategoriaFilmeService service;
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> listar(@PathVariable Integer id) {
+	public ResponseEntity<?> find(@PathVariable Integer id) {
 		CategoriaFilme obj = service.find(id);
 		return ResponseEntity.ok(obj);
 	}
