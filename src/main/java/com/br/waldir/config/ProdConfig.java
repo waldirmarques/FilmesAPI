@@ -9,18 +9,16 @@ import org.springframework.context.annotation.Profile;
 import com.br.waldir.services.DBService;
 
 @Configuration
-@Profile("dev")
-public class DevConfig {
-	
+@Profile("prod")
+public class ProdConfig {
 	private final String CREATE = "create";
-
+	
 	@Autowired
 	private DBService dbService;
 	
-	@Value("$(spring.jpa.hibernate.ddl-auto)")
+	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String strategy;
 	
-
 	@Bean
 	public boolean instantiateDatabase() {
 		return (strategy.equals(CREATE)) ? dbService.instantiateDatabase() : false;

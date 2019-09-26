@@ -1,6 +1,5 @@
 package com.br.waldir.services;
 
-import java.text.ParseException;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class DBService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public void instantiateTestDatabase() throws ParseException {
+	public boolean instantiateDatabase(){
 
 		Usuario user1 = new Usuario(null, "Waldir", "waldir.marques@dcx.ufpb.br", "12345678");
 		
@@ -46,5 +45,6 @@ public class DBService {
 		categoriaFilmeRepository.saveAll(Arrays.asList(cf1,cf2));
 		filmeRepository.saveAll(Arrays.asList(f1,f2));
 		
+		return true;
 	}
 }
