@@ -17,7 +17,7 @@
 	<name>FilmeAPI</name>
 
 	<description>Api that provides themes and challenges for objects of apprenticeship</description>
-
+	
 	<properties>
 		<!-- ... -->
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
