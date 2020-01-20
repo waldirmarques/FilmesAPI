@@ -24,14 +24,3 @@ public class ProdConfig {
 		return (strategy.equals(CREATE)) ? dbService.instantiateDatabase() : false;
 	}
 }
-/*
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-			</exclusions>*/

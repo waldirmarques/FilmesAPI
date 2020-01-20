@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +22,12 @@ import com.br.waldir.domain.CategoriaFilme;
 import com.br.waldir.dto.CategoriaFilmeDTO;
 import com.br.waldir.services.CategoriaFilmeService;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping(value="/categoriaFilmes")
+@Api(value = "API Para cadastro de filmes")
+@CrossOrigin(origins="*") //Todo dominio pode acessar essa api
 public class CategoriaFilmeResources {
 	
 	@Autowired
